@@ -1,0 +1,267 @@
+<% include ../../partials/detailHeader %>
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+        <h1 class="h2"><strong>Edit Issues</strong></h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group mr-2">
+                <button class="btn btn-sm btn-outline-secondary">Share</button>
+                <button class="btn btn-sm btn-outline-secondary">Export</button>
+            </div>
+            <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                <span data-feather="calendar"></span>
+                This week
+            </button>
+        </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="card">
+        <div class="card-body">
+            <form action="" enctype="multipart/form-data" method="POST">
+                <div class="form-group row">
+                    <label for="from1" class="col-sm-2 col-form-label">Project Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="" placeholder="Project Name"
+                            value="<%= projectName %>" disabled>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="from1" class="col-sm-2 col-form-label">Author</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="" placeholder="Author" name="author"
+                            value="<%= author.fullname %>" disabled>
+                    </div>
+                </div>
+
+                <fieldset class="form-group">
+                    <div class="row">
+                        <legend class="col-form-label col-sm-2 pt-0">Tracker</legend>
+                        <div class="col-sm-10">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="tracker" id="gridRadios1" value="Bug"
+                                    <%= issuesdata.tracker == 'Bug' ? ' checked' : '' %>>
+                                <label class="form-check-label" for="gridRadios1">
+                                    Bug
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="tracker" id="gridRadios2"
+                                    value="Feature" <%= issuesdata.tracker == 'Feature' ? ' checked' : '' %>>
+                                <label class="form-check-label" for="gridRadios2">
+                                    Feature
+                                </label>
+                            </div>
+                            <div class="form-check disabled">
+                                <input class="form-check-input" type="radio" name="tracker" id="gridRadios3"
+                                    value="Supports" <%= issuesdata.tracker == 'Supports' ? ' checked' : '' %>>
+                                <label class="form-check-label" for="gridRadios3">
+                                    Supports
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="form-group row">
+                    <label for="from1" class="col-sm-2 col-form-label">Subject</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="" placeholder="Subject" name="subject"
+                            value="<%= issuesdata.subject %>">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="from1" class="col-sm-2 col-form-label">Description</label>
+                    <div class="col-sm-10">
+                        <textarea type="text-area" class="form-control" id="" placeholder="Description"
+                            name="description" value=""><%= issuesdata.description %></textarea>
+                    </div>
+                </div>
+
+                <fieldset class="form-group">
+                    <div class="row">
+                        <legend class="col-form-label col-sm-2 pt-0">Status</legend>
+                        <div class="col-sm-10">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="status" id="gridRadios1" value="New"
+                                    <%= issuesdata.status == 'New' ? ' checked' : '' %>>
+                                <label class="form-check-label" for="gridRadios1">
+                                    New
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="status" id="gridRadios2"
+                                    value="In Progress" <%= issuesdata.status == 'In Progress' ? ' checked' : '' %>>
+                                <label class="form-check-label" for="gridRadios2">
+                                    In Progress
+                                </label>
+                            </div>
+                            <div class="form-check disabled">
+                                <input class="form-check-input" type="radio" name="status" id="gridRadios3"
+                                    value="Resolved" <%= issuesdata.status == 'Resolved' ? ' checked' : '' %>>
+                                <label class="form-check-label" for="gridRadios3">
+                                    Resolved
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="status" id="gridRadios2"
+                                    value="Feedback" <%= issuesdata.status == 'Feedback' ? ' checked' : '' %>>
+                                <label class="form-check-label" for="gridRadios2">
+                                    Feedback
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="status" id="gridRadios2"
+                                    value="Closed" <%= issuesdata.status == 'Closed' ? ' checked' : '' %>>
+                                <label class="form-check-label" for="gridRadios2">
+                                    Closed
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="status" id="gridRadios2"
+                                    value="Rejected" <%= issuesdata.status == 'Rejected' ? ' checked' : '' %>>
+                                <label class="form-check-label" for="gridRadios2">
+                                    Rejected
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <div class="row">
+                        <legend class="col-form-label col-sm-2 pt-0">Priority</legend>
+                        <div class="col-sm-10">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="priority" id="gridRadios1"
+                                    value="Normal" <%= issuesdata.priority == 'Normal' ? ' checked' : '' %>>
+                                <label class="form-check-label" for="gridRadios1">
+                                    Normal
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="priority" id="gridRadios2"
+                                    value="High" <%= issuesdata.priority == 'High' ? ' checked' : '' %>>
+                                <label class="form-check-label" for="gridRadios2">
+                                    High
+                                </label>
+                            </div>
+                            <div class="form-check disabled">
+                                <input class="form-check-input" type="radio" name="priority" id="gridRadios3"
+                                    value="Urgent" <%= issuesdata.priority == 'Urgent' ? ' checked' : '' %>>
+                                <label class="form-check-label" for="gridRadios3">
+                                    Urgent
+                                </label>
+                            </div>
+                            <div class="form-check disabled">
+                                <input class="form-check-input" type="radio" name="priority" id="gridRadios3"
+                                    value="Immediate" <%= issuesdata.priority == 'Immediate' ? ' checked' : '' %>>
+                                <label class="form-check-label" for="gridRadios3">
+                                    Immediate
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="form-group row">
+                    <label class="col-2 col-form-label">Assignee</label>
+                    <div class="col-10">
+                        <select class="custom-select" name="assignee">
+                            <option>Choose the assignee ...</option>
+                            <% assignee.forEach((item) => { %>
+                            <option value="<%= item.userid %>"><%= item.fullname %></option>
+                            <% }) %>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="from1" class="col-sm-2 col-form-label">Start Date</label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control" id="" placeholder="Start Date" name="startdate"
+                            value="<%= moment(issuesdata.startdate).format("YYYY-MM-DD") %>">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="from1" class="col-sm-2 col-form-label">Due Date</label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control" id="" placeholder="Due Date" name="duedate"
+                            value="<%= moment(issuesdata.duedate).format("YYYY-MM-DD")%>">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="from1" class="col-sm-2 col-form-label">Estimated Time</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="" placeholder="Estimated Time" name="estimatedtime"
+                            value="<%= issuesdata.estimatedtime %>">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-2 col-form-label">% done</label>
+                    <div class="col-10">
+                        <select class="custom-select" name="progress">
+                            <option value=""> Persentage of Progress... </option>
+                            <option value="0" <%= issuesdata.done == '0' ? ' selected' : '' %>> 0 </option>
+                            <option value="10" <%= issuesdata.done == '10' ? ' selected' : '' %>> 10 </option>
+                            <option value="20" <%= issuesdata.done == '20' ? ' selected' : '' %>> 20 </option>
+                            <option value="30" <%= issuesdata.done == '30' ? ' selected' : '' %>> 30 </option>
+                            <option value="40" <%= issuesdata.done == '40' ? ' selected' : '' %>> 40 </option>
+                            <option value="50" <%= issuesdata.done == '50' ? ' selected' : '' %>> 50 </option>
+                            <option value="60" <%= issuesdata.done == '60' ? ' selected' : '' %>> 60 </option>
+                            <option value="70" <%= issuesdata.done == '70' ? ' selected' : '' %>> 70 </option>
+                            <option value="80" <%= issuesdata.done == '80' ? ' selected' : '' %>> 80 </option>
+                            <option value="90" <%= issuesdata.done == '90' ? ' selected' : '' %>> 90 </option>
+                            <option value="100" <%= issuesdata.done == '100' ? ' selected' : '' %>> 100 </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="from1" class="col-sm-2 col-form-label">Spent Time </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="" placeholder="Spent Time" name="spenttime"
+                            value="">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="from1" class="col-sm-2 col-form-label">Target Version</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="" placeholder="Target Version" name="targetversion"
+                            value="">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="from1" class="col-sm-2 col-form-label">Updated Date</label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control" id="" placeholder="Updated Date" name="updatedate"
+                            value="">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="from1" class="col-sm-2 col-form-label">Parent Task </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="" placeholder="Parent Task" name="parenttask"
+                            value="">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="from1" class="col-sm-2 col-form-label">Files</label>
+                    <div class="col-sm-10">
+                        <input type="file" class="form-control-file" id="" placeholder="" name="filedoc">
+                    </div>
+                    <div>
+                        <p>Loc : <%= issuesdata.files %></p>
+                        <img class="img-thumbnail" width="200" height="236" src="/file_upload/<%= issuesdata.files %>">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+                <a href="/projects/issues/<%= projectid %>" class="btn btn-warning">Cancel</a>
+            </form>
+        </div>
+    </div>
+</main>
+
+<% include ../../partials/detailFooter %>

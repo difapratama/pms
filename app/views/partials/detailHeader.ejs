@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel='stylesheet' href='/stylesheets/project_detail_page.css' />
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="../../../../favicon.ico">
+
+  <title>Project Details Overview</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <!-- <link href="dashboard.css" rel="stylesheet"> -->
+</head>
+
+<body>
+  
+  <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Project Management System</a>
+    <!-- <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search"> -->
+    <ul class="navbar-nav px-3">
+      <li class="nav-item text-nowrap">
+        <a class="btn btn-outline-success my-2 my-sm-0" href="/" role="button">Sign Out</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+        <div class="sidebar-sticky">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="/projects">
+                <span data-feather="chevrons-right"></span>
+                Projects Page
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/profile">
+                <span data-feather="chevrons-right"></span>
+                Profil Page
+              </a>
+            </li>
+            <hr class="my-2 bg-dark">
+            <li class="nav-item">
+              <a class="nav-link<%= identity == 'overview' ? ' active' : '' %>" href="/projects/overview/<%= projectid %>">
+                <span data-feather="home"></span>
+                Overview <%- identity == 'overview' ? ' <span class="sr-only">(current)</span>' : '' %>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link<%= identity == 'activity' ? ' active' : '' %>" href="/projects/activity/<%= projectid %>">
+                <span data-feather="file"></span>
+                Activity <%- identity == 'activity' ? ' <span class="sr-only">(current)</span>' : '' %>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link<%= identity == 'members' ? ' active' : '' %>" href="/projects/members/<%= projectid %>">
+                <span data-feather="users"></span>
+                Member <%- identity == 'members' ? ' <span class="sr-only">(current)</span>' : '' %>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link<%= identity == 'issues' ? ' active' : '' %>" href="/projects/issues/<%= projectid %>">
+                <span data-feather="help-circle"></span>
+                Issues <%- identity == 'issues' ? ' <span class="sr-only">(current)</span>' : '' %>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>

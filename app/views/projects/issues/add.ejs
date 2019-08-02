@@ -1,0 +1,224 @@
+<% include ../../partials/detailHeader %>
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+        <h1 class="h2"><strong>New Issues</strong></h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group mr-2">
+                <button class="btn btn-sm btn-outline-secondary">Share</button>
+                <button class="btn btn-sm btn-outline-secondary">Export</button>
+            </div>
+            <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                <span data-feather="calendar"></span>
+                This week
+            </button>
+        </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="card">
+        <div class="card-body">
+            <form action="" enctype="multipart/form-data" method="POST">
+                <div class="form-group row">
+                    <label for="from1" class="col-sm-2 col-form-label">Project Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="" placeholder="Project Name"
+                            value="<%- projectName %>" disabled>
+                    </div>
+                </div>
+                <fieldset class="form-group">
+                    <div class="row">
+                        <legend class="col-form-label col-sm-2 pt-0">Tracker</legend>
+                        <div class="col-sm-10">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="tracker" id="gridRadios1" value="Bug"
+                                    checked>
+                                <label class="form-check-label" for="gridRadios1">
+                                    Bug
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="tracker" id="gridRadios2"
+                                    value="Feature">
+                                <label class="form-check-label" for="gridRadios2">
+                                    Feature
+                                </label>
+                            </div>
+                            <div class="form-check disabled">
+                                <input class="form-check-input" type="radio" name="tracker" id="gridRadios3"
+                                    value="Supports">
+                                <label class="form-check-label" for="gridRadios3">
+                                    Supports
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="form-group row">
+                    <label for="from1" class="col-sm-2 col-form-label">Subject</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="" placeholder="Subject" name="subject">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="from1" class="col-sm-2 col-form-label">Description</label>
+                    <div class="col-sm-10">
+                        <textarea type="text-area" class="form-control" id="" placeholder="Description"
+                            name="description"></textarea>
+                    </div>
+                </div>
+
+                <fieldset class="form-group">
+                    <div class="row">
+                        <legend class="col-form-label col-sm-2 pt-0">Status</legend>
+                        <div class="col-sm-10">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="status" id="gridRadios1" value="New"
+                                    checked>
+                                <label class="form-check-label" for="gridRadios1">
+                                    New
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="status" id="gridRadios2"
+                                    value="In Progress" disabled>
+                                <label class="form-check-label" for="gridRadios2">
+                                    In Progress
+                                </label>
+                            </div>
+                            <div class="form-check disabled">
+                                <input class="form-check-input" type="radio" name="status" id="gridRadios3"
+                                    value="Resolved" disabled>
+                                <label class="form-check-label" for="gridRadios3">
+                                    Resolved
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="status" id="gridRadios2"
+                                    value="Feedback" disabled>
+                                <label class="form-check-label" for="gridRadios2">
+                                    Feedback
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="status" id="gridRadios2"
+                                    value="Closed" disabled>
+                                <label class="form-check-label" for="gridRadios2">
+                                    Closed
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="status" id="gridRadios2"
+                                    value="Rejected" disabled>
+                                <label class="form-check-label" for="gridRadios2">
+                                    Rejected
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <div class="row">
+                        <legend class="col-form-label col-sm-2 pt-0">Priority</legend>
+                        <div class="col-sm-10">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="priority" id="gridRadios1"
+                                    value="Normal" checked>
+                                <label class="form-check-label" for="gridRadios1">
+                                    Normal
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="priority" id="gridRadios2"
+                                    value="High">
+                                <label class="form-check-label" for="gridRadios2">
+                                    High
+                                </label>
+                            </div>
+                            <div class="form-check disabled">
+                                <input class="form-check-input" type="radio" name="priority" id="gridRadios3"
+                                    value="Urgent">
+                                <label class="form-check-label" for="gridRadios3">
+                                    Urgent
+                                </label>
+                            </div>
+                            <div class="form-check disabled">
+                                <input class="form-check-input" type="radio" name="priority" id="gridRadios3"
+                                    value="Immediate">
+                                <label class="form-check-label" for="gridRadios3">
+                                    Immediate
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="form-group row">
+                    <label class="col-2 col-form-label"> Assignee</label>
+                    <div class="col-10">
+                        <select class="custom-select" name="assignee">
+                            <option selected>Choose the assignee ...</option>
+                            <% membersName.forEach((item) => { %>
+                            <option value="<%= item.userid %>"><%= item.fullname %></option>
+                            <% }); %>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="from1" class="col-sm-2 col-form-label">Start Date</label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control" id="" placeholder="Start Date" name="startdate">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="from1" class="col-sm-2 col-form-label">Due Date</label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control" id="" placeholder="Due Date" name="duedate">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="from1" class="col-sm-2 col-form-label">Estimated Time</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="" placeholder="Estimated Time" name="estimatedtime">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-2 col-form-label">% done</label>
+                    <div class="col-10">
+                        <select class="custom-select" name="progress">
+                            <option value=""> Persentage of Progress... </option>
+                            <option value="0">0</option>
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="30">30</option>
+                            <option value="40">40</option>
+                            <option value="59">50</option>
+                            <option value="60">60</option>
+                            <option value="70">70</option>
+                            <option value="80">80</option>
+                            <option value="90">90</option>
+                            <option value="100">100</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="from1" class="col-sm-2 col-form-label">Files</label>
+                    <div class="col-sm-10">
+                        <input type="file" class="form-control-file" id="" placeholder="" name="filedoc">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+                <a href="/projects/issues/<%= projectid %>" class="btn btn-warning">Cancel</a>
+            </form>
+        </div>
+    </div>
+</main>
+
+<% include ../../partials/detailFooter %>

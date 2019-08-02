@@ -1,0 +1,43 @@
+<% include ../../partials/detailHeader %>
+
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+    <!-- ============================== Add Members ==============================-->
+    <div class="container">
+        <br>
+        <h1><strong>Add Members</strong></h1>
+        <hr class="my-2">
+        <br>
+        <form action="" method="POST">
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Member
+                </label>
+                <div class="col-10">
+                    <select class="custom-select" name="member">
+                        <option value="">Choose the member ...</option>
+                        <% data.forEach((item) => { %>
+                        <option value="<%= item.userid %>"><%= item.fullname %></option>
+                        <% }); %>
+                    </select>
+                </div>
+            </div> <br>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Position
+                </label>
+                <div class="col-10">
+                    <select class="custom-select" name="position">
+                        <option>Choose the position ...</option>
+                        <% position.forEach((item) => { %>
+                        <option value="<%= item %>"><%= item %></option>
+                        <% }); %>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <button class="btn btn-success" type="submit">Save</button>
+            <a href="" class="btn btn-warning">Cancel</a>
+        </form>
+    </div>
+
+</main>
+
+<% include ../../partials/detailFooter %>

@@ -1,0 +1,149 @@
+<% include ../../partials/detailHeader %>
+
+<!-- ============================== LIST ISSUES ==============================-->
+
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h2"><strong>Issues</strong></h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <div class="btn-group mr-2">
+        <button class="btn btn-sm btn-outline-secondary">Share</button>
+        <button class="btn btn-sm btn-outline-secondary">Export</button>
+      </div>
+      <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+        <span data-feather="calendar"></span>
+        This week
+      </button>
+    </div>
+  </div>
+
+  <!-- ================================ FILTERS ================================ -->
+
+  <div class="container">
+    <h3><strong> Filters </strong></h3>
+    <form action="" method="get" class="form-project">
+      <input type="hidden" name="page" value="1" />
+
+      <div class="form-group row">
+        <label class="col-2 col-form-label">
+          <input class="form-check-input" type="checkbox" name="checkid" <% query.checkid ? ' checked' : '' ; %>>ID
+        </label>
+        <div class="col-10">
+          <input class="form-control" type="text" placeholder="ID" id="example-text-input" name="formid"
+            value="<% query.issuesid %>">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-2 col-form-label">
+          <input class="form-check-input" type="checkbox" name="checksubject"
+            <% query.checksubject ? ' checked' : '' ; %>>Subject
+        </label>
+        <div class="col-10">
+          <input class="form-control" type="text" placeholder="Subject" id="example-text-input" name="formsubject"
+            value="<% query.formsubject %>">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-2 col-form-label">
+          <input class="form-check-input" type="checkbox" name="checktracker"
+            <% query.checktracker ? ' checked' : '' ; %>>Tracker
+        </label>
+        <div class="col-10">
+          <select class="custom-select" name="tracker">
+            <option value="true">Choose the Tracker ...</option>
+            <% data.forEach((item) => { %>
+            <option <% query.tracker == item.tracker ? ' selected' : ''; %>>
+              <%= `${item.tracker}` %></option>
+            <% }) %>
+          </select>
+        </div>
+      </div>
+
+      <div><br></div>
+      <button type="submit" class="btn btn-primary">Search</button>
+      <!-- <a href="/" class="btn btn-warning">reset</a> -->
+      <hr class="my-2">
+      <br>
+    </form>
+    <!-- ================================ OPTION ================================ -->
+    <h2><strong> Options </strong></h2>
+    <form action="/projects/issues/<%- projectid %>/option" method="POST">
+      <div class="form-group row">
+        <div class="col-sm-2">Columns</div>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" name="checkid" name="checkid" <%= columnOne ?
+              ' checked' : '' %>>
+            <label class="form-check-label" for="gridCheck1">
+              ID
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" name="checksubject" name="checksubject" <%= columnTwo ?
+              ' checked' : '' %>>
+            <label class="form-check-label" for="gridCheck1">
+              Subject
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck1" name="checktracker" <%= columnThree ?
+              ' checked' : '' %>>
+            <label class="form-check-label" for="gridCheck1">
+              Tracker
+            </label>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Apply</button>
+    </form>
+    <hr class="my-2">
+
+    <!-- ================================ TABLE ================================ -->
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col" class="<%= columnOne ? '' : 'd-none' %>">#</th>
+          <th scope="col" class="<%= columnTwo ? '' : 'd-none' %>">Subject Name</th>
+          <th scope="col" class="<%= columnThree ? '' : 'd-none' %>">Tracker</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      <tbody>
+        <% data.forEach((item) => { %>
+        <tr>
+          <th scope="row" class="<%= columnOne ? '' : 'd-none' %>"><%= item.issuesid %></th>
+          <td class="<%= columnTwo ? '' : 'd-none' %>"><%= item.subject %></td>
+          <td class="<%= columnThree ? '' : 'd-none' %>"><%= item.tracker %></td>
+          <td class="Actions">
+            <a href="/projects/issues/<%= projectid %>/edit/<%= item.issuesid %>" class="btn btn-success"
+              style="margin:5px;">Edit</a>
+            <a href="/projects/issues/<%= projectid %>/delete/<%= item.issuesid %>" class="btn btn-danger"
+              style="margin:5px;" onclick="return confirm('Yakin bro?')">Delete</a>
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+      <!-- </tbody> -->
+    </table>
+    <a class="btn btn-primary" href="/projects/issues/<%= projectid %>/add" role="button">Add Issues</a>
+    </form>
+    <br>
+  </div>
+  </div>
+</main>
+
+<% include ../../partials/detailFooter %>
